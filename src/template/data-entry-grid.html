@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <button type="button" 
+                class="btn btn-lg btn-info"
+                ng-click="degc.addRow()">Add Row</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th ng-repeat="label in degc.labels">{{label}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in degc.getRowCount() track by $index">
+                    <td ng-repeat="l in degc.labels track by $index">
+                        
+                        <input class="form-control"
+                               type="{{degc.entryTypes[l]['type']}}"
+                               ng-required="degc.entryTypes[l]['required']"
+                               ng-model="degc.formModel[$parent.$index][l]"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>     
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Data Entry Grid Directive</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dist/data_entry_grid.css">
+    </head>
+    <body>
+        <div class="container" ng-app="example-app" ng-controller="appCtrl">
+            <h1>Data Entry Grid</h1>
+            
+            <entry-grid entry-types="entryTypes"
+                        init-rows="rowCount"
+                        form-model="form">
+            </entry-grid>
+            
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="dist/data_entry_grid.concat.js"></script>
+        <script>
+            (function(){
+                angular.module('example-app', ['entry-grid'])
+                    .controller('appCtrl', ['$scope', function($scope){
+                        $scope.form = {}
+                        
+                        $scope.rowCount = 5;
+                        
+                        $scope.entryTypes = {
+                            "First Name" : {"type" : "text", "required" : false},
+                            "Last Name"  : {"type" : "text", "required" : false},
+                            "Email Address" : {"type" : "email", "required" : true},
+                        };
+                    }]);
+            }());
+        </script>
+    </body>
+</html>
