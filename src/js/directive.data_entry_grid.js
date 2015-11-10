@@ -14,46 +14,46 @@
     
     function dataEntryGrid(){
         return {
-            restrict     : "E",
-            replace      : false,
-            scope        :{
-                "initRows"   : "=",
+            restrict         : "E",
+            replace          : false,
+            scope            : {},
+            controller       : [ dataEntryGridCtrl],
+            bindToController : {
+                "rowCount"   : "=",
                 "formModel"  : "=",
                 "entryTypes" : "="
             },
-            controller   : ["$scope", dataEntryGridCtrl],
-            controllerAs : "degc",
-            templateUrl  : "data-entry-grid.html" 
+            controllerAs     : "degc",
+            templateUrl      : "data-entry-grid.html" 
         }
     }
     
     
     
-    function dataEntryGridCtrl($scope){
+    function dataEntryGridCtrl(){
                 
-        this.rows           = $scope.initRows || 5;
-        
-        this.formModel      = $scope.formModel || [];
-        
-        this.entryTypes     = $scope.entryTypes || [];
-        
-        this.labels         = Object.keys(this.entryTypes); 
-        
-        
-        
+        this.init = function(){
+            this.rowCount   = this.rowCount || 5;
+            this.entryTypes = this.entryTypes || {};
+            this.formModel  = this.formModel || {};
+            this.labels     = Object.keys(this.entryTypes); 
+            
+            this.initializeFormData();
+            
+        }
         
         this.addRow = function(){
-            this.rows++;
+            this.rowCount++;
         };
         
         
         this.getRowCount = function(){
-            return new Array(this.rows);
+            return new Array(this.rowCount);
         };
         
         
         this.initializeFormData = function(){
-            for(var i = 0; i < this.rows; i++){
+            for(var i = 0; i < this.rowCount; i++){
                 this.formModel[i] = {};
                 
                 for(var j = 0; j < this.labels.length; j++){
@@ -68,7 +68,7 @@
         };
         
         
-        this.initializeFormData();
+        this.init();
     
     }
     
