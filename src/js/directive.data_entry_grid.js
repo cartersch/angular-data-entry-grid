@@ -17,7 +17,7 @@
             restrict         : "E",
             replace          : false,
             scope            : {},
-            controller       : [ dataEntryGridCtrl],
+            controller       : [dataEntryGridCtrl],
             bindToController : {
                 "rowCount"   : "=",
                 "formModel"  : "=",
@@ -44,8 +44,7 @@
         
         this.addRow = function(){
             this.rowCount++;
-        };
-        
+        }
         
         this.getRowCount = function(){
             return new Array(this.rowCount);
@@ -71,6 +70,7 @@
         this.init();
     
     }
+
     
     
 }());

@@ -1,0 +1,22 @@
+{
+	"name": "data-entry-grid",
+	"description": "Angular directive for creating a series of data entry rows",
+	"author": "Carter Schoenfeld",
+	"version": "0.1.0",
+	"main": "example.html",
+	"dependencies": {
+		"angular": "^1.4.7"
+	},
+	"devDependencies": {
+		"angular-mocks": "^1.4.7",
+		"jasmine-core": "^2.3.4",
+    	"jasmine-jquery": "^2.1.1",
+    	"karma": "^0.13.10",
+		"karma-jasmine": "^0.3.6",
+    	"karma-phantomjs-launcher": "^0.2.1",
+    	"phantomjs": "^1.9.18",
+		"gulp": "^3.9.0",
+		"gulp-concat": "*",
+		"gulp-angular-templatecache": "*"
+	}
+}
